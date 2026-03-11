@@ -25,32 +25,85 @@ A quick, practical reference guide for essential DevOps tools, covering installa
 *(Linux is typically pre-installed on servers, but here's how to ensure basic utilities are present)*
 ```bash
 sudo apt-get update -y
+```
+
+```bash
 sudo apt-get install -y curl wget vim build-essential
 ```
 
 **Cheatsheet / Common Commands:**
 ```bash
 # System Information
-uname -a             # View system information
-htop                 # Interactive process viewer (install via apt)
-df -h                # Check disk space in human-readable format
-free -m              # Check memory usage in MB
+# View system information
+uname -a
+```
 
+```bash
+# Interactive process viewer (install via apt)
+htop
+```
+
+```bash
+# Check disk space in human-readable format
+df -h
+```
+
+```bash
+# Check memory usage in MB
+free -m
+```
+
+```bash
 # File Operations
-ls -lah              # List all files with detailed info
-chmod 755 script.sh  # Make a built script executable
-chown user:group file # Change file owner and group
-tar -czvf flag.tar.gz /dir # Compress directory into tarball
+# List all files with detailed info
+ls -lah
+```
 
+```bash
+# Make a built script executable
+chmod 755 script.sh
+```
+
+```bash
+# Change file owner and group
+chown user:group file
+```
+
+```bash
+# Compress directory into tarball
+tar -czvf flag.tar.gz /dir
+```
+
+```bash
 # Network
-ping google.com      # Check network connectivity
-netstat -tulpn       # List listening ports
-curl -I https://url  # Fetch HTTP headers from a URL
+# Check network connectivity
+ping google.com
+```
 
+```bash
+# List listening ports
+netstat -tulpn
+```
+
+```bash
+# Fetch HTTP headers from a URL
+curl -I https://url
+```
+
+```bash
 # Bash Scripting Basics
-#!/bin/bash          # Shebang for bash scripts
-$1, $2               # Positional arguments passed to script
-$?                   # Exit status of the last command
+# Shebang for bash scripts
+#!/bin/bash
+```
+
+```bash
+# Positional arguments passed to script
+$1, $2
+```
+
+```bash
+# Exit status of the last command
+$?
 ```
 
 ---
@@ -64,7 +117,13 @@ $?                   # Exit status of the last command
 **Installation (Ubuntu/Linux):**
 ```bash
 sudo apt-get update
+```
+
+```bash
 sudo apt-get install -y git
+```
+
+```bash
 git --version
 ```
 
@@ -72,23 +131,63 @@ git --version
 ```bash
 # Configuration
 git config --global user.name "Your Name"
+```
+
+```bash
 git config --global user.email "you@example.com"
+```
 
+```bash
 # Repository Operations
-git init                           # Initialize a new local repo
-git clone <url>                    # Clone a remote repo
+# Initialize a new local repo
+git init
+```
 
+```bash
+# Clone a remote repo
+git clone <url>
+```
+
+```bash
 # Daily Workflow
-git status                         # Check modified files
-git add .                          # Stage all changes
-git commit -m "feat: add feature"  # Commit changes with a message
-git push origin main               # Push changes to remote main branch
-git pull origin main               # Fetch and merge remote changes
+# Check modified files
+git status
+```
 
+```bash
+# Stage all changes
+git add .
+```
+
+```bash
+# Commit changes with a message
+git commit -m "feat: add feature"
+```
+
+```bash
+# Push changes to remote main branch
+git push origin main
+```
+
+```bash
+# Fetch and merge remote changes
+git pull origin main
+```
+
+```bash
 # Branching
-git branch                         # List local branches
-git checkout -b <branch-name>      # Create and switch to a new branch
-git merge <branch-name>            # Merge branch into current branch
+# List local branches
+git branch
+```
+
+```bash
+# Create and switch to a new branch
+git checkout -b <branch-name>
+```
+
+```bash
+# Merge branch into current branch
+git merge <branch-name>
 ```
 
 ---
@@ -103,16 +202,37 @@ git merge <branch-name>            # Merge branch into current branch
 ```bash
 # Add Docker's official GPG key and repo, then install
 sudo apt-get update
+```
+
+```bash
 sudo apt-get install -y ca-certificates curl
+```
+
+```bash
 sudo install -m 0755 -d /etc/apt/keyrings
+```
+
+```bash
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+```
+
+```bash
 sudo chmod a+r /etc/apt/keyrings/docker.asc
+```
 
+```bash
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo \"$VERSION_CODENAME\") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
 
+```bash
 sudo apt-get update
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
 
+```bash
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+```bash
 # Manage Docker as a non-root user
 sudo usermod -aG docker $USER && newgrp docker
 ```
@@ -120,21 +240,60 @@ sudo usermod -aG docker $USER && newgrp docker
 **Cheatsheet / Common Commands:**
 ```bash
 # Image Management
-docker build -t app:v1 .           # Build an image from Dockerfile
-docker pull nginx:latest           # Download an image from Docker Hub
-docker images                      # List local images
+# Build an image from Dockerfile
+docker build -t app:v1 .
+```
 
+```bash
+# Download an image from Docker Hub
+docker pull nginx:latest
+```
+
+```bash
+# List local images
+docker images
+```
+
+```bash
 # Container Operations
-docker run -d -p 8080:80 app:v1    # Run container in background, map port
-docker ps                          # List running containers
-docker ps -a                       # List all containers (running and stopped)
-docker stop <container_id>         # Stop a container
-docker rm <container_id>           # Remove a container
-docker logs <container_id>         # View container logs
-docker exec -it <container_id> sh  # Open shell inside a running container
+# Run container in background, map port
+docker run -d -p 8080:80 app:v1
+```
 
+```bash
+# List running containers
+docker ps
+```
+
+```bash
+# List all containers (running and stopped)
+docker ps -a
+```
+
+```bash
+# Stop a container
+docker stop <container_id>
+```
+
+```bash
+# Remove a container
+docker rm <container_id>
+```
+
+```bash
+# View container logs
+docker logs <container_id>
+```
+
+```bash
+# Open shell inside a running container
+docker exec -it <container_id> sh
+```
+
+```bash
 # Cleanup
-docker system prune -a             # Remove unused data (containers, images)
+# Remove unused data (containers, images)
+docker system prune -a
 ```
 
 ---
@@ -149,34 +308,90 @@ docker system prune -a             # Remove unused data (containers, images)
 ```bash
 # Install kubectl
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-kubectl version --client
+```
 
+```bash
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+```
+
+```bash
+kubectl version --client
+```
+
+```bash
 # Install Kind (Kubernetes in Docker)
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/latest/kind-linux-amd64
+```
+
+```bash
 chmod +x ./kind
+```
+
+```bash
 sudo mv ./kind /usr/local/bin/kind
+```
+
+```bash
 kind version
 ```
 
 **Cheatsheet / Common Commands:**
 ```bash
 # Basic Resources
-kubectl get nodes                  # List cluster nodes
-kubectl get pods -A                # List pods in all namespaces
-kubectl get svc,deploy             # List services and deployments
+# List cluster nodes
+kubectl get nodes
+```
 
+```bash
+# List pods in all namespaces
+kubectl get pods -A
+```
+
+```bash
+# List services and deployments
+kubectl get svc,deploy
+```
+
+```bash
 # Applying & Inspecting Resources
-kubectl apply -f manifest.yaml     # Create/update resource from file
-kubectl describe pod <pod_name>    # Show detailed info about a pod
-kubectl logs <pod_name>            # View logs of a pod
-kubectl exec -it <pod_name> -- sh  # Execute shell in a pod
+# Create/update resource from file
+kubectl apply -f manifest.yaml
+```
 
+```bash
+# Show detailed info about a pod
+kubectl describe pod <pod_name>
+```
+
+```bash
+# View logs of a pod
+kubectl logs <pod_name>
+```
+
+```bash
+# Execute shell in a pod
+kubectl exec -it <pod_name> -- sh
+```
+
+```bash
 # Operations
-kubectl scale deploy <name> --replicas=3 # Scale a deployment
-kubectl port-forward svc/<svc> 8080:80   # Map local port to service
-kubectl delete pod <pod_name>      # Delete a pod (will respawn if managed)
-kubectl get events --sort-by=.metadata.creationTimestamp # View cluster events
+# Scale a deployment
+kubectl scale deploy <name> --replicas=3
+```
+
+```bash
+# Map local port to service
+kubectl port-forward svc/<svc> 8080:80
+```
+
+```bash
+# Delete a pod (will respawn if managed)
+kubectl delete pod <pod_name>
+```
+
+```bash
+# View cluster events
+kubectl get events --sort-by=.metadata.creationTimestamp
 ```
 
 ---
@@ -190,11 +405,29 @@ kubectl get events --sort-by=.metadata.creationTimestamp # View cluster events
 **Installation (Ubuntu/Linux):**
 ```bash
 sudo apt-get update
+```
+
+```bash
 sudo apt-get install -y fontconfig openjdk-17-jre
+```
+
+```bash
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+```
+
+```bash
 echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+```
+
+```bash
 sudo apt-get update
+```
+
+```bash
 sudo apt-get install -y jenkins
+```
+
+```bash
 sudo systemctl enable --now jenkins
 ```
 
@@ -229,24 +462,62 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword # Get initial password
 **Installation (Ubuntu/Linux):**
 ```bash
 wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+```
+
+```bash
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+```
+
+```bash
 sudo apt-get update && sudo apt-get install terraform
 ```
 
 **Cheatsheet / Common Commands:**
 ```bash
 # Core Workflow
-terraform init                     # Initialize working directory (download providers)
-terraform fmt                      # Format configuration files automatically
-terraform validate                 # Check syntax and validity of files
-terraform plan                     # Show execution plan (dry run)
-terraform apply                    # Apply changes to actual infrastructure
-terraform apply -auto-approve      # Apply without prompt (dangerous in prod)
-terraform destroy                  # Destroy all managed infrastructure
+# Initialize working directory (download providers)
+terraform init
+```
 
+```bash
+# Format configuration files automatically
+terraform fmt
+```
+
+```bash
+# Check syntax and validity of files
+terraform validate
+```
+
+```bash
+# Show execution plan (dry run)
+terraform plan
+```
+
+```bash
+# Apply changes to actual infrastructure
+terraform apply
+```
+
+```bash
+# Apply without prompt (dangerous in prod)
+terraform apply -auto-approve
+```
+
+```bash
+# Destroy all managed infrastructure
+terraform destroy
+```
+
+```bash
 # State Management
-terraform state list               # List resources in the state file
-terraform show                     # Inspect the current state
+# List resources in the state file
+terraform state list
+```
+
+```bash
+# Inspect the current state
+terraform show
 ```
 
 ---
@@ -260,36 +531,93 @@ terraform show                     # Inspect the current state
 **Installation (Ubuntu/Linux):**
 ```bash
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+```
+
+```bash
 sudo apt-get install -y unzip
+```
+
+```bash
 unzip awscliv2.zip
+```
+
+```bash
 sudo ./aws/install
+```
+
+```bash
 aws --version
 ```
 
 **Cheatsheet / Common Commands:**
 ```bash
 # Configuration
-aws configure                      # Set up credentials and default region
+# Set up credentials and default region
+aws configure
+```
 
+```bash
 # STS & IAM
-aws sts get-caller-identity        # Verify who you are logged in as
-aws iam list-users                 # List IAM users
+# Verify who you are logged in as
+aws sts get-caller-identity
+```
 
+```bash
+# List IAM users
+aws iam list-users
+```
+
+```bash
 # EC2
-aws ec2 describe-instances         # List EC2 instances
-aws ec2 start-instances --instance-ids i-12345 # Start an instance
+# List EC2 instances
+aws ec2 describe-instances
+```
 
+```bash
+# Start an instance
+aws ec2 start-instances --instance-ids i-12345
+```
+
+```bash
 # S3
-aws s3 ls                          # List buckets
-aws s3 ls s3://my-bucket           # List objects in a bucket
-aws s3 cp file.txt s3://my-bucket  # Upload a file
-aws s3 sync local_dir s3://my-bucket # Sync directory to bucket
+# List buckets
+aws s3 ls
+```
 
+```bash
+# List objects in a bucket
+aws s3 ls s3://my-bucket
+```
+
+```bash
+# Upload a file
+aws s3 cp file.txt s3://my-bucket
+```
+
+```bash
+# Sync directory to bucket
+aws s3 sync local_dir s3://my-bucket
+```
+
+```bash
 # EKS Commands
-aws eks update-kubeconfig --region us-east-1 --name cluster-name # Configure kubectl for EKS
-aws eks list-clusters --region us-east-1                         # List all EKS clusters in a region
-aws eks describe-cluster --name cluster-name                     # Get details of a specific cluster
-aws eks update-cluster-version --name cluster-name --kubernetes-version 1.28 # Update cluster K8s version
+# Configure kubectl for EKS
+aws eks update-kubeconfig --region us-east-1 --name cluster-name
+```
+
+```bash
+# List all EKS clusters in a region
+aws eks list-clusters --region us-east-1
+```
+
+```bash
+# Get details of a specific cluster
+aws eks describe-cluster --name cluster-name
+```
+
+```bash
+# Update cluster K8s version
+aws eks update-cluster-version --name cluster-name --kubernetes-version 1.28
 ```
 
 ---
@@ -304,14 +632,34 @@ aws eks update-cluster-version --name cluster-name --kubernetes-version 1.28 # U
 ```bash
 # 1. Download and start Prometheus
 curl -LO https://github.com/prometheus/prometheus/releases/download/v2.45.0/prometheus-2.45.0.linux-amd64.tar.gz
-tar -xvf prometheus-2.45.0.linux-amd64.tar.gz
-cd prometheus-2.45.0.linux-amd64
-./prometheus --config.file=prometheus.yml &
+```
 
+```bash
+tar -xvf prometheus-2.45.0.linux-amd64.tar.gz
+```
+
+```bash
+cd prometheus-2.45.0.linux-amd64
+```
+
+```bash
+./prometheus --config.file=prometheus.yml &
+```
+
+```bash
 # 2. Download and start Grafana
 curl -LO https://dl.grafana.com/oss/release/grafana-10.4.0.linux-amd64.tar.gz
+```
+
+```bash
 tar -zxvf grafana-10.4.0.linux-amd64.tar.gz
+```
+
+```bash
 cd grafana-10.4.0
+```
+
+```bash
 ./bin/grafana-server web &
 ```
 
@@ -333,10 +681,21 @@ docker-compose up -d
 **Cheatsheet / Common Commands:**
 ```bash
 # PromQL (Prometheus Query Language) Examples
-up                                 # Check if targets are alive (1=up, 0=down)
-node_memory_Active_bytes           # Available active memory
-rate(http_requests_total[5m])      # HTTP request rate over the last 5 min
+# Check if targets are alive (1=up, 0=down)
+up
+```
 
+```bash
+# Available active memory
+node_memory_Active_bytes
+```
+
+```bash
+# HTTP request rate over the last 5 min
+rate(http_requests_total[5m])
+```
+
+```bash
 # Grafana Operations (Typically GUI based)
 # Default Login: admin / admin at http://localhost:3000
 # 1. Add Prometheus as Data Source (URL: http://prometheus:9090)
@@ -355,22 +714,60 @@ rate(http_requests_total[5m])      # HTTP request rate over the last 5 min
 ```bash
 # Install NodeSource PPA and Node.js
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+```
+
+```bash
 sudo apt-get install -y nodejs
+```
+
+```bash
 node -v && npm -v
 ```
 
 **Cheatsheet / Common Commands:**
 ```bash
 # Packages
-npm init -y                        # Initialize a new package.json
-npm install express                # Install a package & add to pkg config
-npm install -g typescript          # Install a global package
-npm install --save-dev jest        # Install a dev dependency
-npm ci                             # Clean install from lockfile (for CI)
+# Initialize a new package.json
+npm init -y
+```
 
+```bash
+# Install a package & add to pkg config
+npm install express
+```
+
+```bash
+# Install a global package
+npm install -g typescript
+```
+
+```bash
+# Install a dev dependency
+npm install --save-dev jest
+```
+
+```bash
+# Clean install from lockfile (for CI)
+npm ci
+```
+
+```bash
 # Execution
-node app.js                        # Run a JavaScript file
-npm start                          # Run the start script in package.json
-npm run build                      # Run a custom build script
-npx create-react-app my-app        # Execute a package without global install
+# Run a JavaScript file
+node app.js
+```
+
+```bash
+# Run the start script in package.json
+npm start
+```
+
+```bash
+# Run a custom build script
+npm run build
+```
+
+```bash
+# Execute a package without global install
+npx create-react-app my-app
 ```
