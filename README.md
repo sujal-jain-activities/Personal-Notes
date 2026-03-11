@@ -116,11 +116,7 @@ $?
 ```bash
 sudo apt-get update
 
-
-
 sudo apt-get install -y git
-
-
 
 git --version
 ```
@@ -290,30 +286,20 @@ docker system prune -a
 ```bash
 # Install kubectl
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-```
 
-```bash
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-```
 
-```bash
 kubectl version --client
 ```
 
 ```bash
 # Install Kind (Kubernetes in Docker)
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/latest/kind-linux-amd64
-```
 
-```bash
 chmod +x ./kind
-```
 
-```bash
 sudo mv ./kind /usr/local/bin/kind
-```
 
-```bash
 kind version
 ```
 
@@ -387,29 +373,17 @@ kubectl get events --sort-by=.metadata.creationTimestamp
 **Installation (Ubuntu/Linux):**
 ```bash
 sudo apt-get update
-```
 
-```bash
 sudo apt-get install -y fontconfig openjdk-17-jre
-```
 
-```bash
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
-```
 
-```bash
 echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
-```
 
-```bash
 sudo apt-get update
-```
 
-```bash
 sudo apt-get install -y jenkins
-```
 
-```bash
 sudo systemctl enable --now jenkins
 ```
 
@@ -444,13 +418,9 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword # Get initial password
 **Installation (Ubuntu/Linux):**
 ```bash
 wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
-```
 
-```bash
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-```
 
-```bash
 sudo apt-get update && sudo apt-get install terraform
 ```
 
@@ -513,21 +483,13 @@ terraform show
 **Installation (Ubuntu/Linux):**
 ```bash
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-```
 
-```bash
 sudo apt-get install -y unzip
-```
 
-```bash
 unzip awscliv2.zip
-```
 
-```bash
 sudo ./aws/install
-```
 
-```bash
 aws --version
 ```
 
@@ -614,34 +576,22 @@ aws eks update-cluster-version --name cluster-name --kubernetes-version 1.28
 ```bash
 # 1. Download and start Prometheus
 curl -LO https://github.com/prometheus/prometheus/releases/download/v2.45.0/prometheus-2.45.0.linux-amd64.tar.gz
-```
 
-```bash
 tar -xvf prometheus-2.45.0.linux-amd64.tar.gz
-```
 
-```bash
 cd prometheus-2.45.0.linux-amd64
-```
 
-```bash
 ./prometheus --config.file=prometheus.yml &
 ```
 
 ```bash
 # 2. Download and start Grafana
 curl -LO https://dl.grafana.com/oss/release/grafana-10.4.0.linux-amd64.tar.gz
-```
 
-```bash
 tar -zxvf grafana-10.4.0.linux-amd64.tar.gz
-```
 
-```bash
 cd grafana-10.4.0
-```
 
-```bash
 ./bin/grafana-server web &
 ```
 
