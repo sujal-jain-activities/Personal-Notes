@@ -25,9 +25,7 @@ A quick, practical reference guide for essential DevOps tools, covering installa
 *(Linux is typically pre-installed on servers, but here's how to ensure basic utilities are present)*
 ```bash
 sudo apt-get update -y
-```
 
-```bash
 sudo apt-get install -y curl wget vim build-essential
 ```
 
@@ -117,13 +115,13 @@ $?
 **Installation (Ubuntu/Linux):**
 ```bash
 sudo apt-get update
-```
 
-```bash
+
+
 sudo apt-get install -y git
-```
 
-```bash
+
+
 git --version
 ```
 
@@ -202,37 +200,21 @@ git merge <branch-name>
 ```bash
 # Add Docker's official GPG key and repo, then install
 sudo apt-get update
-```
 
-```bash
 sudo apt-get install -y ca-certificates curl
-```
 
-```bash
 sudo install -m 0755 -d /etc/apt/keyrings
-```
 
-```bash
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-```
 
-```bash
 sudo chmod a+r /etc/apt/keyrings/docker.asc
-```
 
-```bash
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo \"$VERSION_CODENAME\") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-```
 
-```bash
 sudo apt-get update
-```
 
-```bash
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-```
 
-```bash
 # Manage Docker as a non-root user
 sudo usermod -aG docker $USER && newgrp docker
 ```
