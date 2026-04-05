@@ -610,6 +610,31 @@ cd grafana-10.4.0
 docker-compose up -d
 ```
 
+**Alternative Installation - via Helm (Kubernetes):**
+```bash
+# 1. Add Prometheus Helm Repository
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+
+# 2. Install Prometheus Stack (Includes Prometheus, Grafana, Alertmanager)
+helm install prometheus-stack prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace
+
+# 3. Verify Installation
+kubectl get pods -n monitoring
+```
+
+**Accessing Services (Helm/K8s):**
+```bash
+# Get Grafana admin password
+kubectl get secret --namespace monitoring prometheus-stack-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
+# Port-forward to access Grafana (localhost:3000)
+kubectl port-forward deployment/prometheus-stack-grafana 3000:3000 -n monitoring
+
+# Port-forward to access Prometheus (localhost:9090)
+kubectl port-forward deployment/prometheus-stack-prometheus 9090:9090 -n monitoring
+```
+
 **Cheatsheet / Common Commands:**
 ```bash
 # PromQL (Prometheus Query Language) Examples
